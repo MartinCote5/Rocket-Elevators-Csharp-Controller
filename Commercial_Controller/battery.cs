@@ -11,15 +11,15 @@ namespace Commercial_Controller
             
         }
 
-        public Column findBestColumn(int _requestedFloor)
-        {
+        // public Column findBestColumn(int _requestedFloor)
+        // {
             
-        }
-        //Simulate when a user press a button at the lobby
-        public (Column, Elevator) assignElevator(int _requestedFloor, string _direction)
-        {
+        // }
+        // //Simulate when a user press a button at the lobby
+        // public (Column, Elevator) assignElevator(int _requestedFloor, string _direction)
+        // {
             
-        }
+        // }
     }
 }
 

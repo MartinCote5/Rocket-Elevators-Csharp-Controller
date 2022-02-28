@@ -5,9 +5,11 @@ namespace Commercial_Controller
     {
         static void Main(string[] args)
         {
-            int scenarioNumber = Int32.Parse(args[0]);
+            // Console.WriteLine("Hello world!");
+            //Battery battery = new Battery(1,);
+            /*int scenarioNumber = Int32.Parse(args[0]);
             Scenarios scenarios = new Scenarios();
-            scenarios.run(scenarioNumber);
+            scenarios.run(scenarioNumber);*/
         }
     }
 }
