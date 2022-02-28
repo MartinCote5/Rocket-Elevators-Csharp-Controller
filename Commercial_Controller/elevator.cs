@@ -5,9 +5,24 @@ namespace Commercial_Controller
 {
     public class Elevator
     {
-        public Elevator(string _elevatorID)
+        public string ID;
+        public string status;
+        public int currentFloor;
+        public string direction;
+        public object door = new Door(1);
+        
+        List<int> floorRequestsList = new List<int>();
+        List<int> completedRequestsList  = new List<int>();
+
+        public Elevator(string id)
         {
+            this.ID = id;
             
+            
+            
+            
+
+
         }
         public void move()
         {
