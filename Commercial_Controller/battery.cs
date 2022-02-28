@@ -8,7 +8,7 @@ namespace Commercial_Controller
         public int ID;
        
         public string status;
-        List<Column> columnsList;
+        List<Column> columnsList = new List<Column>();
         List<int> floorRequestButtonsList;
         public Battery(int id, int amountOfColumns, int amountOfFloors, int amountOfBasements, int amountOfElevatorPerColumn)
         {   
@@ -44,23 +44,27 @@ namespace Commercial_Controller
         public void createBasementColumn(int amountOfBasements, int amountOfElevatorPerColumn) {
             List<int> servedFloors = new List<int>();
             int floor = -1;
+            
 
 
             for (int i = 0; i < amountOfBasements; i++) {
                 // Console.WriteLine(floor);
                 servedFloors.Add(floor);
-                Console.WriteLine(servedFloors[i]);
+                // Console.WriteLine(servedFloors[i]);
                 floor--;
+        
             }
 
-            // Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, true);
+            Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, true);
 
-            // columnsList.Add(column);
+            columnsList.Add(column);
 
-            // public columnID++;
+
+            // public columnID++;   ------------ dont forget this
             
-
-            
+            // Console.WriteLine(column);
+            // Console.WriteLine(columnsList[0]);
+            // Console.WriteLine(columnsList[0].ID);        
 
         }
 
@@ -68,11 +72,7 @@ namespace Commercial_Controller
 
         
  
-        // SET column TO NEW Column WITH columnID AND online AND _amountOfBasements AND _amountOfElevatorPerColumn AND servedFloors AND true
-        // ADD column TO THIS columnsList
-        // INCREMENT columnID
-        // ENDSEQUENCE
-
+      
 
 
 
