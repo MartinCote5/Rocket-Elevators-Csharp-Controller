@@ -14,10 +14,17 @@ namespace Commercial_Controller
         {   
             this.ID = id;
            
+            if (amountOfBasements > 0) {
+                createBasementFloorRequestButtons(amountOfBasements);
+                createBasementColumn(amountOfBasements, amountOfElevatorPerColumn);
+                amountOfBasements--;
 
+            } 
 
+            createFloorRequestButtons(amountOfFloors); 
 
-            // if
+            createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
+
 
 
 
@@ -26,6 +33,39 @@ namespace Commercial_Controller
             
             // Console.WriteLine(columnsList);
         }
+
+
+
+        public void createBasementFloorRequestButtons(int amountOfBasements) {
+            Console.WriteLine(ID);
+        }
+
+
+
+        public void createBasementColumn(int amountOfBasements, int amountOfElevatorPerColumn) {
+            
+        }
+
+
+
+
+
+
+
+
+
+        public void createFloorRequestButtons(int amountOfFloors) {
+            
+        }
+
+
+
+
+        public void createColumns(int amountOfColumns, int amountOfFloors, int amountOfElevatorPerColumn) {
+
+        }
+
+
 
         // public Column findBestColumn(int requestedFloor)
         // {
