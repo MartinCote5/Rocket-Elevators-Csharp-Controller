@@ -8,7 +8,7 @@ namespace Commercial_Controller
         public int ID;
        
         public string status;
-        List<int> columnsList;
+        List<Column> columnsList;
         List<int> floorRequestButtonsList;
         public Battery(int id, int amountOfColumns, int amountOfFloors, int amountOfBasements, int amountOfElevatorPerColumn)
         {   
@@ -17,8 +17,7 @@ namespace Commercial_Controller
             if (amountOfBasements > 0) {
                 createBasementFloorRequestButtons(amountOfBasements);
                 createBasementColumn(amountOfBasements, amountOfElevatorPerColumn);
-                amountOfBasements--;
-
+                amountOfColumns--;
             } 
 
             createFloorRequestButtons(amountOfFloors); 
@@ -28,8 +27,8 @@ namespace Commercial_Controller
 
 
 
-            Console.WriteLine(ID);
-            Console.WriteLine(amountOfFloors);
+            // Console.WriteLine(ID);
+            // Console.WriteLine(amountOfFloors);
             
             // Console.WriteLine(columnsList);
         }
@@ -37,14 +36,44 @@ namespace Commercial_Controller
 
 
         public void createBasementFloorRequestButtons(int amountOfBasements) {
-            Console.WriteLine(ID);
+           
         }
 
 
 
         public void createBasementColumn(int amountOfBasements, int amountOfElevatorPerColumn) {
+            List<int> servedFloors = new List<int>();
+            int floor = -1;
+
+
+            for (int i = 0; i < amountOfBasements; i++) {
+                // Console.WriteLine(floor);
+                servedFloors.Add(floor);
+                Console.WriteLine(servedFloors[i]);
+                floor--;
+            }
+
+            // Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, true);
+
+            // columnsList.Add(column);
+
+            // public columnID++;
             
+
+            
+
         }
+
+
+
+        
+ 
+        // SET column TO NEW Column WITH columnID AND online AND _amountOfBasements AND _amountOfElevatorPerColumn AND servedFloors AND true
+        // ADD column TO THIS columnsList
+        // INCREMENT columnID
+        // ENDSEQUENCE
+
+
 
 
 
