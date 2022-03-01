@@ -97,18 +97,62 @@ namespace Commercial_Controller
                     // Elevator BestElevator = bestElevatorInformations.bestElevator;
                     // int bestScore = bestElevatorInformations.bestScore;
                     // int referenceGap = bestElevatorInformations.referenceGap;    
-                }
-                // return bestElevator;
-            }
-        
+                } 
+            }   else {
+                        foreach (Elevator elevator in elevatorsList) {
+                            //The elevator is at the same level as me, and is about to depart to the first floor
+                            if (requestedFloor == elevator.currentFloor && elevator.status == "stopped" && requestedDirection == elevator.direction) {
+                                bestElevatorInformations = checkIfElevatorIsBetter(1, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
+                                //The elevator is lower than me and is going up. I'm on a basement, and the elevator can pick me up on it's way
+                        }   else if (requestedFloor > elevator.currentFloor && elevator.direction == "up" && requestedDirection == "up") {
+                                bestElevatorInformations = checkIfElevatorIsBetter(2, elevator, bestScore, referenceGap, bestElevator, requestedFloor);   
+                                //The elevator is higher than me and is going down. I'm on a floor, and the elevator can pick me up on it's way 
+                        }   else if (requestedFloor < elevator.currentFloor && elevator.direction == "down" && requestedDirection == "down") {
+                                bestElevatorInformations = checkIfElevatorIsBetter(2, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
+                                //The elevator is idle and has no requests    
+                        }   else if (elevator.status == "idle") {
+                                bestElevatorInformations = checkIfElevatorIsBetter(4, elevator, bestScore, referenceGap, bestElevator, requestedFloor); 
+                                //The elevator is not available, but still could take the call if nothing better is found         
+                        }   else {
+                            bestElevatorInformations = checkIfElevatorIsBetter(5, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
+                        }
+                        // Elevator BestElevator = bestElevatorInformations.bestElevator;
+                        // int bestScore = bestElevatorInformations.bestScore;
+                        // int referenceGap = bestElevatorInformations.referenceGap; 
+                        
+                    }       
+                }    
+    
                 
             Elevator x = null;
 
             return x;
-
+            // return bestElevator;
         }
 
     
+
+
+
+
+   
+  
+               
+               
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
         public  Elevator checkIfElevatorIsBetter(int scoreToCheck, Elevator newElevator, int bestScore, int referenceGap, Elevator bestElevator, int Floor ) {
             
             Elevator bestElevatorInformations = null;
