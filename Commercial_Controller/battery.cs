@@ -9,7 +9,7 @@ namespace Commercial_Controller
        
         public string status;
         List<Column> columnsList = new List<Column>();
-        List<int> floorRequestButtonsList;
+        List<FloorRequestButton> floorRequestButtonsList = new List<FloorRequestButton>();
         public Battery(int id, int amountOfColumns, int amountOfFloors, int amountOfBasements, int amountOfElevatorPerColumn)
         {   
             this.ID = id;
@@ -83,24 +83,32 @@ namespace Commercial_Controller
 
 
 
-        public void createFloorRequestButtons(int amountOfFloors) {
-            
-        }
+        
+
+
+
+
+
+
+
+
+
+
 
 
 
 
         public void createColumns(double amountOfColumns, double amountOfFloors, double amountOfElevatorPerColumn) {
             double amountOfFloorsPerColumn = Math.Round(amountOfFloors / amountOfColumns);
-            Console.WriteLine(amountOfFloors); 
-            Console.WriteLine(amountOfColumns); 
-            Console.WriteLine(amountOfFloorsPerColumn);
+            // Console.WriteLine(amountOfFloors); 
+            // Console.WriteLine(amountOfColumns); 
+            // Console.WriteLine(amountOfFloorsPerColumn);
             int floor = 1;
 
             for (int i = 0; i < amountOfColumns; i++) {
                 List<int> servedFloors = new List<int>();
-                Console.WriteLine(i);
-                Console.WriteLine("big loop");
+                // Console.WriteLine(i);
+                // Console.WriteLine("big loop");
 
 
 
@@ -108,12 +116,12 @@ namespace Commercial_Controller
                     if (floor <= amountOfFloors) {
                         servedFloors.Add(floor);
                         floor++;
-                        Console.WriteLine(i2);
-                        Console.WriteLine("smallLoop");
+                        // Console.WriteLine(i2);
+                        // Console.WriteLine("smallLoop");
 
                     }
                 }
-                Console.WriteLine("weee");
+
                 Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, false);
                 columnsList.Add(column);
 
@@ -121,9 +129,9 @@ namespace Commercial_Controller
                 // public columnID++;   ------------ dont forget this
 
 
-                Console.WriteLine(column);
-                Console.WriteLine(columnsList[0]);
-                Console.WriteLine(columnsList[1].servedFloors);  
+                // Console.WriteLine(column);
+                // Console.WriteLine(columnsList[0]);
+                // Console.WriteLine(columnsList[1].servedFloors);  
 
             
             }
@@ -138,11 +146,25 @@ namespace Commercial_Controller
  
 
 
+        public void createFloorRequestButtons(int amountOfFloors) {
+            int buttonFloor = 1;
+
+            for (int i = 0; i < amountOfFloors; i++) {
+                FloorRequestButton floorRequestButton = new FloorRequestButton(buttonFloor,  buttonFloor, "up");    
+                floorRequestButtonsList.Add(floorRequestButton);
+                // Console.WriteLine(servedFloors[i]);
+                buttonFloor++;
+
+                 // public floorRequestButtonID++;   ------------ dont forget this
+            }
 
 
+            
+        }
 
-
-
+    // SEQUENCE createFloorRequestButtons USING _amountOfFloors
+    //     SET buttonFloor TO 1
+    
 
 
 

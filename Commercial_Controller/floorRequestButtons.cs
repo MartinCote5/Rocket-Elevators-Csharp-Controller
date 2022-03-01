@@ -4,7 +4,7 @@ namespace Commercial_Controller
     public class FloorRequestButton
     {
         public int ID;
-        public string status;
+        public string status = "OFF";
         public int floor;
         public string direction;
         public FloorRequestButton(int id, int floor, string direction)
