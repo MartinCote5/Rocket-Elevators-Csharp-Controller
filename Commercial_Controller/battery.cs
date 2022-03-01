@@ -36,7 +36,7 @@ namespace Commercial_Controller
             createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
 
              
-            findBestColumn(33);    
+            findBestColumn(40);    
 
 
             // Console.WriteLine(ID);
@@ -129,8 +129,8 @@ namespace Commercial_Controller
 
 
 
-        public void createColumns(double amountOfColumns, double amountOfFloors, double amountOfElevatorPerColumn) {
-            double amountOfFloorsPerColumn = Math.Round(amountOfFloors / amountOfColumns);
+        public void createColumns(decimal amountOfColumns, decimal amountOfFloors, decimal amountOfElevatorPerColumn) {
+            decimal amountOfFloorsPerColumn = Math.Ceiling(amountOfFloors / amountOfColumns);
             // Console.WriteLine(amountOfFloors); 
             // Console.WriteLine(amountOfColumns); 
             // Console.WriteLine(amountOfFloorsPerColumn);
@@ -200,32 +200,19 @@ namespace Commercial_Controller
 
 
 
-        public Column findBestColumn(int requstedFloor)
+        public Column findBestColumn(int requestedFloor)
         {
-             int x = 0;
-            foreach (Column column in columnsList) {
-                // Console.WriteLine(column.ID); 
-                // Console.WriteLine(column.servedFloors); 
-               
-                for (int i = 0; i < column.servedFloors.Count; i++) {
-                    // Console.WriteLine(column.servedFloors[i]);
-                    
-                    if (column.servedFloors[i] == requstedFloor) {
-                        // Console.WriteLine(column);
-                        
-                        
-                           
-                    }
-                        x++;
-                        Console.WriteLine(x);
-                }  
-            }Console.WriteLine("yeah");
-            return this.columnsList[x];
             
-               
-                  
-                
-            //   return this.columnsList[0];
+                if (requestedFloor < 0) {
+                    return this.columnsList[0];
+                }
+                decimal x = (decimal)requestedFloor / this.columnsList[1].servedFloors.Count;
+                int columnIndex = Decimal.ToInt32(Math.Ceiling(x));
+
+                Console.WriteLine(this.columnsList[1].servedFloors.Count);
+                Console.WriteLine(requestedFloor);
+                Console.WriteLine(x);
+                return this.columnsList[columnIndex];    
         }
 
 
@@ -234,6 +221,15 @@ namespace Commercial_Controller
         // {
             
         // }
+
+
+
+
+
+
+
+
+        
     }
 }
 
@@ -247,3 +243,49 @@ namespace Commercial_Controller
 //         ENDFOR
 //     ENDSEQUENCE
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   public Column findBestColumn(int requstedFloor)
+//         {
+//              int x = 0;
+//             foreach (Column column in columnsList) {
+//                 // Console.WriteLine(column.ID); 
+//                 // Console.WriteLine(column.servedFloors); 
+               
+//                 for (int i = 0; i < column.servedFloors.Count; i++) {
+//                     // Console.WriteLine(column.servedFloors[i]);
+                    
+//                     if (column.servedFloors[i] == requstedFloor) {
+//                         // Console.WriteLine(column);
+                        
+                        
+                           
+//                     }
+//                         x++;
+//                         Console.WriteLine(x);
+//                 }  
+//             }Console.WriteLine("yeah");
+//             return this.columnsList[x];
+
+
+
+
+
+
+
+
+
+
+// foreach (Column column in columnsList) {

@@ -11,7 +11,7 @@ namespace Commercial_Controller
         public bool isBasement;
         List<Elevator> elevatorsList = new List<Elevator>();
         List<CallButton> callButtonsList = new List<CallButton>();
-        public Column(string id, double amountOfElevators, List<int> servedFloors, bool isBasement)
+        public Column(string id, decimal amountOfElevators, List<int> servedFloors, bool isBasement)
         {
             this.ID = id;
             this.servedFloors = servedFloors;
@@ -22,7 +22,7 @@ namespace Commercial_Controller
         }
 
 
-        public void createElevators(double amountOfElevators) {
+        public void createElevators(decimal amountOfElevators) {
              for (int i = 0; i < amountOfElevators; i++) {
                 Elevator elevator = new Elevator(Battery.IDGenerator.elevatorID.ToString());    
                 elevatorsList.Add(elevator);
