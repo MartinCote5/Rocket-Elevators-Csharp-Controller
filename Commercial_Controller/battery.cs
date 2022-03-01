@@ -90,9 +90,61 @@ namespace Commercial_Controller
 
 
 
-        public void createColumns(int amountOfColumns, int amountOfFloors, int amountOfElevatorPerColumn) {
+        public void createColumns(double amountOfColumns, double amountOfFloors, double amountOfElevatorPerColumn) {
+            double amountOfFloorsPerColumn = Math.Round(amountOfFloors / amountOfColumns);
+            Console.WriteLine(amountOfFloors); 
+            Console.WriteLine(amountOfColumns); 
+            Console.WriteLine(amountOfFloorsPerColumn);
+            int floor = 1;
+
+            for (int i = 0; i < amountOfColumns; i++) {
+                List<int> servedFloors = new List<int>();
+                Console.WriteLine(i);
+                Console.WriteLine("big loop");
+
+
+
+                for (int i2 = 0; i2 < amountOfFloorsPerColumn; i2++) {
+                    if (floor <= amountOfFloors) {
+                        servedFloors.Add(floor);
+                        floor++;
+                        Console.WriteLine(i2);
+                        Console.WriteLine("smallLoop");
+
+                    }
+                }
+                Console.WriteLine("weee");
+                Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, false);
+                columnsList.Add(column);
+
+
+                // public columnID++;   ------------ dont forget this
+
+
+                Console.WriteLine(column);
+                Console.WriteLine(columnsList[0]);
+                Console.WriteLine(columnsList[1].servedFloors);  
+
+            
+            }
+
+
+
 
         }
+
+
+      
+ 
+
+
+
+
+
+
+
+
+
 
 
 
