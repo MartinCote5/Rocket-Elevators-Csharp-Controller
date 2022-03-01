@@ -5,6 +5,10 @@ namespace Commercial_Controller
 {
     public class Battery
     {
+        static class IDGenerator 
+        {
+            public static int columnID = 1;
+        } 
         public int ID;
        
         public string status;
@@ -13,7 +17,9 @@ namespace Commercial_Controller
         public Battery(int id, int amountOfColumns, int amountOfFloors, int amountOfBasements, int amountOfElevatorPerColumn)
         {   
             this.ID = id;
-           
+
+              
+
             if (amountOfBasements > 0) {
                 createBasementFloorRequestButtons(amountOfBasements);
                 createBasementColumn(amountOfBasements, amountOfElevatorPerColumn);
@@ -76,12 +82,12 @@ namespace Commercial_Controller
         
             }
 
-            Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, true);
+            Column column = new Column(IDGenerator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, true);
 
             columnsList.Add(column);
 
 
-            // public columnID++;   ------------ dont forget this
+            IDGenerator.columnID++; 
             
             // Console.WriteLine(column);
             // Console.WriteLine(columnsList[0]);
@@ -143,11 +149,12 @@ namespace Commercial_Controller
                     }
                 }
 
-                Column column = new Column("1", amountOfElevatorPerColumn, servedFloors, false);
+                Column column = new Column(IDGenerator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, false);
                 columnsList.Add(column);
 
 
-                // public columnID++;   ------------ dont forget this
+                IDGenerator.columnID++;   
+                
 
 
                 // Console.WriteLine(column);
@@ -209,5 +216,4 @@ namespace Commercial_Controller
         // }
     }
 }
-
 

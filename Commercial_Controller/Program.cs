@@ -7,6 +7,8 @@ namespace Commercial_Controller
         static void Main(string[] args)
         {
             Battery battery = new Battery(1, 4, 60, 6, 5);
+
+            
             // public int columnID = 1;
             /*int scenarioNumber = Int32.Parse(args[0]);
             Scenarios scenarios = new Scenarios();

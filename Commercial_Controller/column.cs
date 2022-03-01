@@ -38,10 +38,11 @@ namespace Commercial_Controller
             if(isBasement) {
                 int buttonFloor = -1;
                 for (int i = 0; i < servedFloors.Count; i++) {
-                    CallButton callButton = new CallButton(1, buttonFloor, "up");    
+                    CallButton callButton = new CallButton(1, servedFloors[i], "up");    
                     callButtonsList.Add(callButton);
                     buttonFloor--;
-                    Console.WriteLine(buttonFloor);
+                    // Console.WriteLine(servedFloors[i]);
+                    
                         // public callButtonID++;   ------------ dont forget this
                 }     
          }  else {
@@ -50,8 +51,9 @@ namespace Commercial_Controller
                     CallButton callButton = new CallButton(1, buttonFloor, "down");    
                     callButtonsList.Add(callButton);
                     buttonFloor++;
-                    Console.WriteLine(buttonFloor);
+                    // Console.WriteLine(buttonFloor);
                         // public callButtonID++;   ------------ dont forget this
+                    // Console.WriteLine(servedFloors[i]);
                 }      
 
 
