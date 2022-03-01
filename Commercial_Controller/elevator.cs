@@ -6,8 +6,8 @@ namespace Commercial_Controller
     public class Elevator
     {
         public string ID;
-        public string status = "idle";
-        public int currentFloor;
+        public string status = "stopped";
+        public int currentFloor = 1;
         public string direction;
         public object door = new Door(Battery.IDGenerator.doorID);
         
