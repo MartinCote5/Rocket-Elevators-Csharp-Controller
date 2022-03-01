@@ -18,6 +18,7 @@ namespace Commercial_Controller
             this.isBasement = isBasement;
             createElevators(amountOfElevators);
             createCallButtons(servedFloors, isBasement);
+            // findBestColumn(33);
         }
 
 
@@ -34,7 +35,7 @@ namespace Commercial_Controller
 
 
          public void createCallButtons(List<int> servedFloors, bool isBasement) {
-             Console.WriteLine(servedFloors);
+            //  Console.WriteLine(servedFloors);
              
             if(isBasement) {
                 int buttonFloor = -1;
@@ -44,7 +45,7 @@ namespace Commercial_Controller
                     callButtonsList.Add(callButton);
                     buttonFloor--;
                     Battery.IDGenerator.callButtonID++;  
-                    Console.WriteLine(IDButton);
+                    // Console.WriteLine(IDButton);
                 }     
          }  else {
                 int buttonFloor = 1;
@@ -54,7 +55,7 @@ namespace Commercial_Controller
                     callButtonsList.Add(callButton);
                     buttonFloor++;
                     Battery.IDGenerator.callButtonID++;
-                    Console.WriteLine(IDButton);
+                    // Console.WriteLine(IDButton);
                 }      
 
 
@@ -65,7 +66,7 @@ namespace Commercial_Controller
 
 
  
-
+    
 
 
 

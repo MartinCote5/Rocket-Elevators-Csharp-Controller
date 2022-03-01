@@ -36,7 +36,7 @@ namespace Commercial_Controller
             createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
 
              
-            
+            findBestColumn(33);    
 
 
             // Console.WriteLine(ID);
@@ -195,25 +195,41 @@ namespace Commercial_Controller
 
    
     
+        
 
 
 
 
-
-        // public Column findBestColumn(int requestedFloor)
-        // {
-            // foreach (int column in columnsList) {
-            //     System.Console.Write("{0} ", i);
-            // }
+        public Column findBestColumn(int requstedFloor)
+        {
+             int x = 0;
+            foreach (Column column in columnsList) {
+                // Console.WriteLine(column.ID); 
+                // Console.WriteLine(column.servedFloors); 
+               
+                for (int i = 0; i < column.servedFloors.Count; i++) {
+                    // Console.WriteLine(column.servedFloors[i]);
+                    
+                    if (column.servedFloors[i] == requstedFloor) {
+                        // Console.WriteLine(column);
+                        
+                        
+                           
+                    }
+                        x++;
+                        Console.WriteLine(x);
+                }  
+            }Console.WriteLine("yeah");
+            return this.columnsList[x];
             
                
-            // Console.WriteLine("allo");       
+                  
                 
-              
-        // }
+            //   return this.columnsList[0];
+        }
 
 
-        //Simulate when a user press a button at the lobby
+        // Simulate when a user press a button at the lobby
         // public (Column, Elevator) assignElevator(int requestedFloor, string direction)
         // {
             
@@ -221,3 +237,13 @@ namespace Commercial_Controller
     }
 }
 
+
+
+// SEQUENCE findBestColumn USING _requestedFloor RETURNING column
+//         FOR EACH column IN THIS columnsList
+//             IF column servedFloorsList CONTAINS _requestedFloor
+//                 RETURN column
+//             ENDIF
+//         ENDFOR
+//     ENDSEQUENCE
+ 

@@ -7,6 +7,7 @@ namespace Commercial_Controller
         static void Main(string[] args)
         {
             Battery battery = new Battery(1, 4, 60, 6, 5);
+            
 
             
             // public int columnID = 1;
