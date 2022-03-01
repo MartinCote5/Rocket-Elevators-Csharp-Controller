@@ -26,7 +26,7 @@ namespace Commercial_Controller
             createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
 
              
-
+            
 
 
             // Console.WriteLine(ID);
@@ -178,7 +178,7 @@ namespace Commercial_Controller
                  // public floorRequestButtonID++;   ------------ dont forget this
             }
 
-
+        
             
         }
 
@@ -191,13 +191,23 @@ namespace Commercial_Controller
 
         // public Column findBestColumn(int requestedFloor)
         // {
+            // foreach (int column in columnsList) {
+            //     System.Console.Write("{0} ", i);
+            // }
             
+               
+            // Console.WriteLine("allo");       
+                
+              
         // }
-        // //Simulate when a user press a button at the lobby
+
+
+        //Simulate when a user press a button at the lobby
         // public (Column, Elevator) assignElevator(int requestedFloor, string direction)
         // {
             
         // }
     }
 }
+
 
