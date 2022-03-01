@@ -20,10 +20,12 @@ namespace Commercial_Controller
                 amountOfColumns--;
             } 
 
-            createFloorRequestButtons(amountOfFloors); 
-
+            
+            createFloorRequestButtons(amountOfFloors);
+            
             createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
 
+             
 
 
 
@@ -36,8 +38,27 @@ namespace Commercial_Controller
 
 
         public void createBasementFloorRequestButtons(int amountOfBasements) {
-           
+            int buttonFloor = -1;
+            for (int i = 0; i < amountOfBasements; i++) {
+                FloorRequestButton floorRequestButton = new FloorRequestButton(buttonFloor,  buttonFloor, "down");    
+                floorRequestButtonsList.Add(floorRequestButton);
+                buttonFloor--;
+
+                 // public floorRequestButtonID++;   ------------ dont forget this
+            }
+
         }
+
+
+
+
+
+
+
+    
+
+
+
 
 
 
@@ -152,7 +173,6 @@ namespace Commercial_Controller
             for (int i = 0; i < amountOfFloors; i++) {
                 FloorRequestButton floorRequestButton = new FloorRequestButton(buttonFloor,  buttonFloor, "up");    
                 floorRequestButtonsList.Add(floorRequestButton);
-                // Console.WriteLine(servedFloors[i]);
                 buttonFloor++;
 
                  // public floorRequestButtonID++;   ------------ dont forget this
@@ -162,8 +182,7 @@ namespace Commercial_Controller
             
         }
 
-    // SEQUENCE createFloorRequestButtons USING _amountOfFloors
-    //     SET buttonFloor TO 1
+   
     
 
 
