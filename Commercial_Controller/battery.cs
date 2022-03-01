@@ -36,7 +36,7 @@ namespace Commercial_Controller
             createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
 
              
-            findBestColumn(40);    
+            assignElevator(43, "up");    
 
 
             // Console.WriteLine(ID);
@@ -209,18 +209,34 @@ namespace Commercial_Controller
                 decimal x = (decimal)requestedFloor / this.columnsList[1].servedFloors.Count;
                 int columnIndex = Decimal.ToInt32(Math.Ceiling(x));
 
-                Console.WriteLine(this.columnsList[1].servedFloors.Count);
-                Console.WriteLine(requestedFloor);
-                Console.WriteLine(x);
+                // Console.WriteLine(this.columnsList[1].servedFloors.Count);
+                // Console.WriteLine(requestedFloor);
+                // Console.WriteLine(columnIndex);
+
                 return this.columnsList[columnIndex];    
         }
 
 
         // Simulate when a user press a button at the lobby
-        // public (Column, Elevator) assignElevator(int requestedFloor, string direction)
-        // {
-            
-        // }
+        public (Column, Elevator) assignElevator(int requestedFloor, string direction)
+        {
+            Column column = findBestColumn(requestedFloor);    
+
+            Console.WriteLine(column);
+
+            Elevator elevator = column.findElevator(1, direction);
+
+            Console.WriteLine(elevator);
+
+
+
+
+
+            Column x = null;
+            Elevator y = null;
+
+            return (x, y);
+        }
 
 
 
@@ -235,12 +251,17 @@ namespace Commercial_Controller
 
 
 
-// SEQUENCE findBestColumn USING _requestedFloor RETURNING column
-//         FOR EACH column IN THIS columnsList
-//             IF column servedFloorsList CONTAINS _requestedFloor
-//                 RETURN column
-//             ENDIF
-//         ENDFOR
+//   '//Simulate when a user press a button at the lobby
+//     SEQUENCE assignElevator USING _requestedFloor AND _direction
+//         SET column TO THIS findBestColumn WITH _requestedFloor RETURNING column
+
+
+//         SET elevator TO CALL column findElevator WITH 1 AND _direction RETURNING bestElevator '// The floor is always 1 because that request is always made from the lobby.
+//         CALL elevator addNewRequest WITH 1
+//         CALL elevator move
+ 
+//         CALL elevator addNewRequest WITH _requestedFloor
+//         CALL elevator move
 //     ENDSEQUENCE
  
 
@@ -254,7 +275,7 @@ namespace Commercial_Controller
 
 
 
-
+// scrap------------------------------------------------------------------------------------------
 
 
 //   public Column findBestColumn(int requstedFloor)

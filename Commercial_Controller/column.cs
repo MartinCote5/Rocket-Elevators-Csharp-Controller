@@ -66,9 +66,19 @@ namespace Commercial_Controller
 
 
  
+        public Elevator findElevator(int requestedFloor, string requestedDirection) {
+
+
+            Console.WriteLine(requestedDirection);
+
+
+            Elevator x = null;
+
+            return x;
+
+        }
+
     
-
-
 
 
 
