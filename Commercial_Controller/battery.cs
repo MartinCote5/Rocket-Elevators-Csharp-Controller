@@ -5,9 +5,13 @@ namespace Commercial_Controller
 {
     public class Battery
     {
-        static class IDGenerator 
+        public static class IDGenerator 
         {
             public static int columnID = 1;
+            public static int floorRequestButtonID = 1;
+            public static int elevatorID = 1;
+            public static int callButtonID = 1;
+            public static int doorID = 1;
         } 
         public int ID;
        
@@ -46,11 +50,11 @@ namespace Commercial_Controller
         public void createBasementFloorRequestButtons(int amountOfBasements) {
             int buttonFloor = -1;
             for (int i = 0; i < amountOfBasements; i++) {
-                FloorRequestButton floorRequestButton = new FloorRequestButton(buttonFloor,  buttonFloor, "down");    
+                FloorRequestButton floorRequestButton = new FloorRequestButton(IDGenerator.floorRequestButtonID,  buttonFloor, "down");    
                 floorRequestButtonsList.Add(floorRequestButton);
                 buttonFloor--;
 
-                 // public floorRequestButtonID++;   ------------ dont forget this
+                IDGenerator.floorRequestButtonID++; 
             }
 
         }
@@ -178,11 +182,11 @@ namespace Commercial_Controller
             int buttonFloor = 1;
 
             for (int i = 0; i < amountOfFloors; i++) {
-                FloorRequestButton floorRequestButton = new FloorRequestButton(buttonFloor,  buttonFloor, "up");    
+                FloorRequestButton floorRequestButton = new FloorRequestButton(IDGenerator.floorRequestButtonID,  buttonFloor, "up");    
                 floorRequestButtonsList.Add(floorRequestButton);
                 buttonFloor++;
 
-                 // public floorRequestButtonID++;   ------------ dont forget this
+                IDGenerator.floorRequestButtonID++;   
             }
 
         

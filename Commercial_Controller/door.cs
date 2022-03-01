@@ -7,6 +7,7 @@ namespace Commercial_Controller
         public Door(int id)
         {
             this.ID = id;
+            Battery.IDGenerator.doorID++;
         
         }
     }

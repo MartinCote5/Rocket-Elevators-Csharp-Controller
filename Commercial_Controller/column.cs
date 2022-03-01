@@ -23,11 +23,11 @@ namespace Commercial_Controller
 
         public void createElevators(double amountOfElevators) {
              for (int i = 0; i < amountOfElevators; i++) {
-                Elevator elevator = new Elevator("1");    
+                Elevator elevator = new Elevator(Battery.IDGenerator.elevatorID.ToString());    
                 elevatorsList.Add(elevator);
                 
 
-                 // public elevatorID++;   ------------ dont forget this
+                Battery.IDGenerator.elevatorID++;  
             }
         }
 
@@ -35,25 +35,26 @@ namespace Commercial_Controller
 
          public void createCallButtons(List<int> servedFloors, bool isBasement) {
              Console.WriteLine(servedFloors);
+             
             if(isBasement) {
                 int buttonFloor = -1;
                 for (int i = 0; i < servedFloors.Count; i++) {
-                    CallButton callButton = new CallButton(1, servedFloors[i], "up");    
+                    int IDButton = Battery.IDGenerator.callButtonID;
+                    CallButton callButton = new CallButton(IDButton, servedFloors[i], "up");    
                     callButtonsList.Add(callButton);
                     buttonFloor--;
-                    // Console.WriteLine(servedFloors[i]);
-                    
-                        // public callButtonID++;   ------------ dont forget this
+                    Battery.IDGenerator.callButtonID++;  
+                    Console.WriteLine(IDButton);
                 }     
          }  else {
                 int buttonFloor = 1;
                 for (int i = 0; i < servedFloors.Count; i++) {
-                    CallButton callButton = new CallButton(1, buttonFloor, "down");    
+                    int IDButton = Battery.IDGenerator.callButtonID;
+                    CallButton callButton = new CallButton(IDButton, servedFloors[i], "down");    
                     callButtonsList.Add(callButton);
                     buttonFloor++;
-                    // Console.WriteLine(buttonFloor);
-                        // public callButtonID++;   ------------ dont forget this
-                    // Console.WriteLine(servedFloors[i]);
+                    Battery.IDGenerator.callButtonID++;
+                    Console.WriteLine(IDButton);
                 }      
 
 

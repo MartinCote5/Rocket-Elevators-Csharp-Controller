@@ -9,7 +9,7 @@ namespace Commercial_Controller
         public string status = "idle";
         public int currentFloor;
         public string direction;
-        public object door = new Door(1);
+        public object door = new Door(Battery.IDGenerator.doorID);
         
         List<int> floorRequestsList = new List<int>();
         List<int> completedRequestsList  = new List<int>();
