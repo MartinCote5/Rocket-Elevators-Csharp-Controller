@@ -3,23 +3,25 @@ using System.Collections.Generic;
 
 namespace Commercial_Controller
 {
+    public class IDGenerator 
+    {
+            public int columnID = 1;
+            public int floorRequestButtonID = 1;
+            public int doorID = 1;
+    } 
+
     public class Battery
     {
-        public static class IDGenerator 
-        {
-            public static int columnID = 1;
-            public static int floorRequestButtonID = 1;
-            public static int elevatorID = 1;
-            public static int callButtonID = 1;
-            public static int doorID = 1;
-        } 
+        public IDGenerator generator;
         public int ID;
        
         public string status;
-        List<Column> columnsList = new List<Column>();
-        List<FloorRequestButton> floorRequestButtonsList = new List<FloorRequestButton>();
+        public List<Column> columnsList = new List<Column>();
+        public List<FloorRequestButton> floorRequestButtonsList = new List<FloorRequestButton>();
         public Battery(int id, int amountOfColumns, int amountOfFloors, int amountOfBasements, int amountOfElevatorPerColumn)
         {   
+            generator = new IDGenerator();
+            Console.WriteLine("create battery");
             this.ID = id;
 
             if (amountOfBasements > 0) {
@@ -27,7 +29,7 @@ namespace Commercial_Controller
                 createBasementColumn(amountOfBasements, amountOfElevatorPerColumn);
                 amountOfColumns--;
             } 
-            
+
             createFloorRequestButtons(amountOfFloors);
             createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);   
         }
@@ -38,10 +40,10 @@ namespace Commercial_Controller
             int buttonFloor = -1;
 
             for (int i = 0; i < amountOfBasements; i++) {
-                FloorRequestButton floorRequestButton = new FloorRequestButton(IDGenerator.floorRequestButtonID,  buttonFloor, "down");    
+                FloorRequestButton floorRequestButton = new FloorRequestButton(generator.floorRequestButtonID,  buttonFloor, "down");    
                 floorRequestButtonsList.Add(floorRequestButton);
                 buttonFloor--;
-                IDGenerator.floorRequestButtonID++; 
+                generator.floorRequestButtonID++; 
             }
 
         }
@@ -65,9 +67,9 @@ namespace Commercial_Controller
                 floor--;
             }
 
-            Column column = new Column(IDGenerator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, true);
+            Column column = new Column(generator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, true);
             columnsList.Add(column);
-            IDGenerator.columnID++;        
+            generator.columnID++;        
         }
 
 
@@ -92,9 +94,9 @@ namespace Commercial_Controller
                     }
                 }
 
-                Column column = new Column(IDGenerator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, false);
+                Column column = new Column(generator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, false);
                 columnsList.Add(column);
-                IDGenerator.columnID++;   
+                generator.columnID++;   
                 
             }
 
@@ -109,11 +111,11 @@ namespace Commercial_Controller
             int buttonFloor = 1;
 
             for (int i = 0; i < amountOfFloors; i++) {
-                FloorRequestButton floorRequestButton = new FloorRequestButton(IDGenerator.floorRequestButtonID,  buttonFloor, "up");    
+                FloorRequestButton floorRequestButton = new FloorRequestButton(generator.floorRequestButtonID,  buttonFloor, "up");    
                 floorRequestButtonsList.Add(floorRequestButton);
                 buttonFloor++;
 
-                IDGenerator.floorRequestButtonID++;   
+                generator.floorRequestButtonID++;   
             }
     
         }

@@ -9,8 +9,8 @@ namespace Commercial_Controller
         public string status = "online";
         public List<int> servedFloors;
         public bool isBasement;
-        List<Elevator> elevatorsList = new List<Elevator>();
-        List<CallButton> callButtonsList = new List<CallButton>();
+        public List<Elevator> elevatorsList = new List<Elevator>();
+        public List<CallButton> callButtonsList = new List<CallButton>();
         public Column(string id, decimal amountOfElevators, List<int> servedFloors, bool isBasement)
         {
             this.ID = id;
@@ -23,12 +23,13 @@ namespace Commercial_Controller
 
 
         public void createElevators(decimal amountOfElevators) {
+            int elevatorID = 1;
              for (int i = 0; i < amountOfElevators; i++) {
-                Elevator elevator = new Elevator(Battery.IDGenerator.elevatorID.ToString());    
+                Elevator elevator = new Elevator(elevatorID.ToString());    
                 elevatorsList.Add(elevator);
                 
 
-                Battery.IDGenerator.elevatorID++;  
+                elevatorID++;  
             }
         }
 
@@ -36,25 +37,23 @@ namespace Commercial_Controller
 
          public void createCallButtons(List<int> servedFloors, bool isBasement) {
             
-             
+             int callButtonID = 1;
             if(isBasement) {
                 int buttonFloor = -1;
                 for (int i = 0; i < servedFloors.Count; i++) {
-                    int IDButton = Battery.IDGenerator.callButtonID;
-                    CallButton callButton = new CallButton(IDButton, servedFloors[i], "up");    
+                    CallButton callButton = new CallButton(callButtonID, servedFloors[i], "up");    
                     callButtonsList.Add(callButton);
                     buttonFloor--;
-                    Battery.IDGenerator.callButtonID++;  
+                    callButtonID++;  
                     
                 }     
          }  else {
                 int buttonFloor = 1;
                 for (int i = 0; i < servedFloors.Count; i++) {
-                    int IDButton = Battery.IDGenerator.callButtonID;
-                    CallButton callButton = new CallButton(IDButton, servedFloors[i], "down");    
+                    CallButton callButton = new CallButton(callButtonID, servedFloors[i], "down");    
                     callButtonsList.Add(callButton);
                     buttonFloor++;
-                    Battery.IDGenerator.callButtonID++;
+                    callButtonID++;
                     
                 }      
              }   
