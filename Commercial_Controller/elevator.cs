@@ -24,11 +24,65 @@ namespace Commercial_Controller
 
 
         }
-        public void move()
-        {
+        public void move() {
+            while (this.floorRequestsList.Count != 0) {
+                int destination = this.floorRequestsList[0];
+                this.status = "moving";
+                if (this.currentFloor < destination) {
+                    this.direction = "up";
 
-        }
+                    // this.sortFloorList();
+                    destination = this.floorRequestsList[0];
+                    while (this.currentFloor < destination) {
+                        this.currentFloor++;
+                        int screenDisplay = this.currentFloor;
+                        }
+                }   else if (this.currentFloor > destination) {
+                        this.direction = "down";
+                        // this.sortFloorList();
+                        destination = this.floorRequestsList[0];
+                        while (this.currentFloor > destination) {
+                            this.currentFloor--;
+                            int screenDisplay = this.currentFloor;
+                            }
+                        }
+                        this.status = "stopped";
+                        // this.operateDoor()
+                        this.floorRequestsList.RemoveAt(0);
+                    }
+                this.status = "idle";
+            }
+
+                       
+            
         
+        
+
+ 
+
+    
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

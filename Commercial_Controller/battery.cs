@@ -231,6 +231,8 @@ namespace Commercial_Controller
 
             elevator.addNewRequest(1);
 
+            elevator.move();
+
             
 
 
@@ -262,7 +264,7 @@ namespace Commercial_Controller
 
 
 
-//         CALL elevator addNewRequest WITH 1
+
 
 
 //         CALL elevator move
