@@ -47,7 +47,7 @@ namespace Commercial_Controller
                             }
                         }
                         this.status = "stopped";
-                        // this.operateDoor()
+                        this.operateDoors();
                         this.floorRequestsList.RemoveAt(0);
                     }
                 this.status = "idle";
@@ -64,6 +64,11 @@ namespace Commercial_Controller
 
         }  
         
+        
+        public void operateDoors() {
+            this.door = "opened";
+            this.door = "closed";
+            }
         
 
 

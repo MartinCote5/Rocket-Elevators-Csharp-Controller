@@ -65,6 +65,25 @@ namespace Commercial_Controller
         }
 
 
+
+
+        //Simulate when a user press a button on a floor to go back to the first floor
+        public void requestElevator(int userPosition, string direction ) {
+            Elevator elevator = this.findElevator(userPosition, direction);
+            elevator.addNewRequest(userPosition);
+            elevator.move();
+            //Always 1 because the user can only go back to the lobby
+            elevator.addNewRequest(1);
+            elevator.move();
+
+
+        }
+
+
+ 
+
+
+
  
         public Elevator findElevator(int requestedFloor, string requestedDirection) {
 

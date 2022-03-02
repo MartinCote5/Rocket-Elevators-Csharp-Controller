@@ -233,20 +233,11 @@ namespace Commercial_Controller
 
             elevator.move();
 
-            
+            elevator.addNewRequest(requestedFloor);
 
+            elevator.move();            
 
-
-            
-
-
-            
-
-
-            Column x = null;
-            Elevator y = null;
-
-            return (x, y);
+            return (column, elevator);
         }
 
 
@@ -267,11 +258,9 @@ namespace Commercial_Controller
 
 
 
-//         CALL elevator move
+
  
-//         CALL elevator addNewRequest WITH _requestedFloor
-//         CALL elevator move
-//     ENDSEQUENCE
+
  
 
 
