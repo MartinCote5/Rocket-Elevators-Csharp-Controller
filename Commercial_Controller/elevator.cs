@@ -1,4 +1,4 @@
-using System.Threading;
+using System;
 using System.Collections.Generic;
 
 namespace Commercial_Controller
@@ -33,24 +33,34 @@ namespace Commercial_Controller
 
 
         public void addNewRequest(int requestedFloor) {
+            
+
+            if(this.floorRequestsList.Contains(requestedFloor) == false ) {
+                this.floorRequestsList.Add(requestedFloor);
+            }
+
+            if (currentFloor < requestedFloor) {
+                this.direction = "up";
+            }
+            if (currentFloor > requestedFloor) {
+                this.direction = "down";
+            }
+            
+            
+        }
+
+    
+
+
+
+    
 
             
         
 
-        }
+    
 
-        
-    //     IF THIS floorRequestList DOES NOT CONTAIN requestedFloor THEN
-    //         ADD requestedFloor TO THIS floorRequestList
-    //     ENDIF
- 
-    //     IF THIS currentFloor < requestedFloor THEN
-    //         SET THIS direction TO up
-    //     ENDIF
-    //     IF THIS currentFloor > requestedFloor THEN
-    //         SET THIS direction TO down
-    //     ENDIF
-    // ENDSEQUENCE
+     
 
 
 
