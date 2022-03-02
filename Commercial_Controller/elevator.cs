@@ -31,7 +31,7 @@ namespace Commercial_Controller
                 if (this.currentFloor < destination) {
                     this.direction = "up";
 
-                    // this.sortFloorList();
+                    this.sortFloorList();
                     destination = this.floorRequestsList[0];
                     while (this.currentFloor < destination) {
                         this.currentFloor++;
@@ -39,7 +39,7 @@ namespace Commercial_Controller
                         }
                 }   else if (this.currentFloor > destination) {
                         this.direction = "down";
-                        // this.sortFloorList();
+                        this.sortFloorList();
                         destination = this.floorRequestsList[0];
                         while (this.currentFloor > destination) {
                             this.currentFloor--;
@@ -54,9 +54,22 @@ namespace Commercial_Controller
             }
 
                        
+        public void sortFloorList() {
+            if (this.direction == "up") {
+                this.floorRequestsList.Sort();
+        }   else {
+                this.floorRequestsList.Reverse();
+            }
             
+
+        }  
         
         
+
+
+
+
+       
 
  
 
