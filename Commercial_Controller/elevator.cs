@@ -18,12 +18,11 @@ namespace Commercial_Controller
         {
             this.ID = id;
                 
-               
-            
-            
-
-
         }
+
+
+
+
         public void move() {
             while (this.floorRequestsList.Count != 0) {
                 int destination = this.floorRequestsList[0];
@@ -53,7 +52,9 @@ namespace Commercial_Controller
                 this.status = "idle";
             }
 
-                       
+
+
+
         public void sortFloorList() {
             if (this.direction == "up") {
                 this.floorRequestsList.Sort();
@@ -65,41 +66,14 @@ namespace Commercial_Controller
         }  
         
         
+
+
+
         public void operateDoors() {
             this.door = "opened";
             this.door = "closed";
             }
         
-
-
-
-
-       
-
- 
-
-    
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -122,33 +96,6 @@ namespace Commercial_Controller
         }
 
     
-
-
-
-    
-
-            
-        
-
-    
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

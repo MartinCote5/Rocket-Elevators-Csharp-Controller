@@ -18,7 +18,7 @@ namespace Commercial_Controller
             this.isBasement = isBasement;
             createElevators(amountOfElevators);
             createCallButtons(servedFloors, isBasement);
-            // findBestColumn(33);
+            
         }
 
 
@@ -35,7 +35,7 @@ namespace Commercial_Controller
 
 
          public void createCallButtons(List<int> servedFloors, bool isBasement) {
-            //  Console.WriteLine(servedFloors);
+            
              
             if(isBasement) {
                 int buttonFloor = -1;
@@ -45,7 +45,7 @@ namespace Commercial_Controller
                     callButtonsList.Add(callButton);
                     buttonFloor--;
                     Battery.IDGenerator.callButtonID++;  
-                    // Console.WriteLine(IDButton);
+                    
                 }     
          }  else {
                 int buttonFloor = 1;
@@ -55,28 +55,25 @@ namespace Commercial_Controller
                     callButtonsList.Add(callButton);
                     buttonFloor++;
                     Battery.IDGenerator.callButtonID++;
-                    // Console.WriteLine(IDButton);
+                    
                 }      
-
-
-             }
-
-           
+             }   
         }
 
 
 
 
+        
         //Simulate when a user press a button on a floor to go back to the first floor
-        public void requestElevator(int userPosition, string direction ) {
-            Elevator elevator = this.findElevator(userPosition, direction);
-            elevator.addNewRequest(userPosition);
+        public Elevator requestElevator(int requestedFloor, string direction)
+        {
+            Elevator elevator = this.findElevator(requestedFloor, direction);
+            elevator.addNewRequest(requestedFloor);
             elevator.move();
             //Always 1 because the user can only go back to the lobby
             elevator.addNewRequest(1);
             elevator.move();
-
-
+            return elevator;
         }
 
 
@@ -90,7 +87,7 @@ namespace Commercial_Controller
             Elevator bestElevator = elevatorsList[1];
             int bestScore = 6;
             int referenceGap = 10000000;
-            // Elevator bestElevatorInformations;
+            
 
                 if (requestedFloor == 1) {
                     foreach (Elevator elevator in elevatorsList) {
@@ -113,9 +110,7 @@ namespace Commercial_Controller
                     }   else {
                             (bestElevator, bestScore, referenceGap) = checkIfElevatorIsBetter(5, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
                     }
-                    // Elevator BestElevator = bestElevatorInformations.bestElevator;
-                    // int bestScore = bestElevatorInformations.bestScore;
-                    // int referenceGap = bestElevatorInformations.referenceGap;    
+                     
                 } 
             }   else {
                         foreach (Elevator elevator in elevatorsList) {
@@ -135,9 +130,6 @@ namespace Commercial_Controller
                         }   else {
                             (bestElevator, bestScore, referenceGap) = checkIfElevatorIsBetter(5, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
                         }
-                        // Elevator BestElevator = bestElevatorInformations.bestElevator;
-                        // int bestScore = bestElevatorInformations.bestScore;
-                        // int referenceGap = bestElevatorInformations.referenceGap; 
                         
                     }       
                 }    
@@ -146,25 +138,6 @@ namespace Commercial_Controller
         }
 
     
-
-
-
-
-   
-  
-               
-               
- 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -184,38 +157,7 @@ namespace Commercial_Controller
             
             return (bestElevator, bestScore, referenceGap);   
         }
-        
 
-
-
-
- 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //     //Simulate when a user press a button on a floor to go back to the first floor
-    //     public Elevator requestElevator(int requestedFloor, string direction)
-    //     {
-            
-    //     }
 
     }
 }

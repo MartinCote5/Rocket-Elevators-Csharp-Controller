@@ -22,38 +22,25 @@ namespace Commercial_Controller
         {   
             this.ID = id;
 
-              
-
             if (amountOfBasements > 0) {
                 createBasementFloorRequestButtons(amountOfBasements);
                 createBasementColumn(amountOfBasements, amountOfElevatorPerColumn);
                 amountOfColumns--;
             } 
-
             
             createFloorRequestButtons(amountOfFloors);
-            
-            createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);
-
-             
-            assignElevator(43, "up");    
-
-
-            // Console.WriteLine(ID);
-            // Console.WriteLine(amountOfFloors);
-            
-            // Console.WriteLine(columnsList);
+            createColumns(amountOfColumns, amountOfFloors, amountOfElevatorPerColumn);   
         }
 
 
 
         public void createBasementFloorRequestButtons(int amountOfBasements) {
             int buttonFloor = -1;
+
             for (int i = 0; i < amountOfBasements; i++) {
                 FloorRequestButton floorRequestButton = new FloorRequestButton(IDGenerator.floorRequestButtonID,  buttonFloor, "down");    
                 floorRequestButtonsList.Add(floorRequestButton);
                 buttonFloor--;
-
                 IDGenerator.floorRequestButtonID++; 
             }
 
@@ -65,65 +52,27 @@ namespace Commercial_Controller
 
 
 
-    
-
-
-
-
 
 
         public void createBasementColumn(int amountOfBasements, int amountOfElevatorPerColumn) {
             List<int> servedFloors = new List<int>();
             int floor = -1;
             
-
-
             for (int i = 0; i < amountOfBasements; i++) {
                 // Console.WriteLine(floor);
                 servedFloors.Add(floor);
                 // Console.WriteLine(servedFloors[i]);
                 floor--;
-        
             }
 
             Column column = new Column(IDGenerator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, true);
-
             columnsList.Add(column);
-
-
-            IDGenerator.columnID++; 
-            
-            // Console.WriteLine(column);
-            // Console.WriteLine(columnsList[0]);
-            // Console.WriteLine(columnsList[0].ID);        
-
+            IDGenerator.columnID++;        
         }
 
 
 
         
- 
-      
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
 
 
 
@@ -131,45 +80,23 @@ namespace Commercial_Controller
 
         public void createColumns(decimal amountOfColumns, decimal amountOfFloors, decimal amountOfElevatorPerColumn) {
             decimal amountOfFloorsPerColumn = Math.Ceiling(amountOfFloors / amountOfColumns);
-            // Console.WriteLine(amountOfFloors); 
-            // Console.WriteLine(amountOfColumns); 
-            // Console.WriteLine(amountOfFloorsPerColumn);
             int floor = 1;
 
             for (int i = 0; i < amountOfColumns; i++) {
                 List<int> servedFloors = new List<int>();
-                // Console.WriteLine(i);
-                // Console.WriteLine("big loop");
-
-
-
+            
                 for (int i2 = 0; i2 < amountOfFloorsPerColumn; i2++) {
                     if (floor <= amountOfFloors) {
                         servedFloors.Add(floor);
                         floor++;
-                        // Console.WriteLine(i2);
-                        // Console.WriteLine("smallLoop");
-
                     }
                 }
 
                 Column column = new Column(IDGenerator.columnID.ToString(), amountOfElevatorPerColumn, servedFloors, false);
                 columnsList.Add(column);
-
-
                 IDGenerator.columnID++;   
                 
-
-
-                // Console.WriteLine(column);
-                // Console.WriteLine(columnsList[0]);
-                // Console.WriteLine(columnsList[1].servedFloors);  
-
-            
             }
-
-
-
 
         }
 
@@ -188,9 +115,7 @@ namespace Commercial_Controller
 
                 IDGenerator.floorRequestButtonID++;   
             }
-
-        
-            
+    
         }
 
    
@@ -215,6 +140,9 @@ namespace Commercial_Controller
 
                 return this.columnsList[columnIndex];    
         }
+
+
+
 
 
         // Simulate when a user press a button at the lobby
@@ -243,10 +171,6 @@ namespace Commercial_Controller
 
 
 
-
-
-
-
         
     }
 }
@@ -268,43 +192,3 @@ namespace Commercial_Controller
 
 
 
-
-
-
-
-
-// scrap------------------------------------------------------------------------------------------
-
-
-//   public Column findBestColumn(int requstedFloor)
-//         {
-//              int x = 0;
-//             foreach (Column column in columnsList) {
-//                 // Console.WriteLine(column.ID); 
-//                 // Console.WriteLine(column.servedFloors); 
-               
-//                 for (int i = 0; i < column.servedFloors.Count; i++) {
-//                     // Console.WriteLine(column.servedFloors[i]);
-                    
-//                     if (column.servedFloors[i] == requstedFloor) {
-//                         // Console.WriteLine(column);
-                        
-                        
-                           
-//                     }
-//                         x++;
-//                         Console.WriteLine(x);
-//                 }  
-//             }Console.WriteLine("yeah");
-//             return this.columnsList[x];
-
-
-
-
-
-
-
-
-
-
-// foreach (Column column in columnsList) {
