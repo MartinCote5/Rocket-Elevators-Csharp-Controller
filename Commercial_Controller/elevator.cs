@@ -9,10 +9,10 @@ namespace Commercial_Controller
         public string status = "stopped";
         public int currentFloor = 1;
         public string direction;
-        public object door = new Door(Battery.IDGenerator.doorID);
+        public Door door = new Door(1);
         
-        List<int> floorRequestsList = new List<int>();
-        List<int> completedRequestsList  = new List<int>();
+        public List<int> floorRequestsList = new List<int>();
+        public List<int> completedRequestsList  = new List<int>();
 
         public Elevator(string id)
         {
@@ -26,7 +26,7 @@ namespace Commercial_Controller
         public void move() {
             while (this.floorRequestsList.Count != 0) {
                 int destination = this.floorRequestsList[0];
-                this.status = "moving";
+                status = "moving";
                 if (this.currentFloor < destination) {
                     this.direction = "up";
 
@@ -47,6 +47,7 @@ namespace Commercial_Controller
                         }
                         this.status = "stopped";
                         this.operateDoors();
+                        this.completedRequestsList.Add(floorRequestsList[0]);
                         this.floorRequestsList.RemoveAt(0);
                     }
                 this.status = "idle";
@@ -70,8 +71,8 @@ namespace Commercial_Controller
 
 
         public void operateDoors() {
-            this.door = "opened";
-            this.door = "closed";
+            this.door.status = "opened";
+            this.door.status = "closed";
             }
         
 
@@ -79,8 +80,7 @@ namespace Commercial_Controller
 
 
         public void addNewRequest(int requestedFloor) {
-            
-
+    
             if(this.floorRequestsList.Contains(requestedFloor) == false ) {
                 this.floorRequestsList.Add(requestedFloor);
             }
