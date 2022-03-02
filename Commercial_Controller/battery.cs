@@ -224,12 +224,21 @@ namespace Commercial_Controller
 
             Console.WriteLine(column);
 
+            // The floor is always 1 because that request is always made from the lobby.
             Elevator elevator = column.findElevator(1, direction);
 
             Console.WriteLine(elevator);
 
+            elevator.addNewRequest(1);
+
+            
 
 
+
+            
+
+
+            
 
 
             Column x = null;
@@ -251,13 +260,11 @@ namespace Commercial_Controller
 
 
 
-//   '//Simulate when a user press a button at the lobby
-//     SEQUENCE assignElevator USING _requestedFloor AND _direction
-//         SET column TO THIS findBestColumn WITH _requestedFloor RETURNING column
 
 
-//         SET elevator TO CALL column findElevator WITH 1 AND _direction RETURNING bestElevator '// The floor is always 1 because that request is always made from the lobby.
 //         CALL elevator addNewRequest WITH 1
+
+
 //         CALL elevator move
  
 //         CALL elevator addNewRequest WITH _requestedFloor

@@ -17,8 +17,8 @@ namespace Commercial_Controller
         public Elevator(string id)
         {
             this.ID = id;
-            
-            
+                
+               
             
             
 
@@ -29,5 +29,49 @@ namespace Commercial_Controller
 
         }
         
+
+
+
+        public void addNewRequest(int requestedFloor) {
+
+            
+        
+
+        }
+
+        
+    //     IF THIS floorRequestList DOES NOT CONTAIN requestedFloor THEN
+    //         ADD requestedFloor TO THIS floorRequestList
+    //     ENDIF
+ 
+    //     IF THIS currentFloor < requestedFloor THEN
+    //         SET THIS direction TO up
+    //     ENDIF
+    //     IF THIS currentFloor > requestedFloor THEN
+    //         SET THIS direction TO down
+    //     ENDIF
+    // ENDSEQUENCE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
