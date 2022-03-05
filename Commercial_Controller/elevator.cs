@@ -15,91 +15,88 @@ namespace Commercial_Controller
 
         public Elevator(string id)
         {
-            this.ID = id;
-                
+            ID = id;        
         }
 
 
 
-
-        public void move() {
-            while (this.floorRequestsList.Count != 0) {
-                int destination = this.floorRequestsList[0];
+        public void move() 
+        {
+            while (floorRequestsList.Count != 0) 
+            {
+                int destination = floorRequestsList[0];
                 status = "moving";
-                if (this.currentFloor < destination) {
-                    this.direction = "up";
 
-                    this.sortFloorList();
-                    destination = this.floorRequestsList[0];
-                    while (this.currentFloor < destination) {
-                        this.currentFloor++;
-                        int screenDisplay = this.currentFloor;
-                        }
-                }   else if (this.currentFloor > destination) {
-                        this.direction = "down";
-                        this.sortFloorList();
-                        destination = this.floorRequestsList[0];
-                        while (this.currentFloor > destination) {
-                            this.currentFloor--;
-                            int screenDisplay = this.currentFloor;
-                            }
-                        }
-                        this.status = "stopped";
-                        this.operateDoors();
-                        this.completedRequestsList.Add(floorRequestsList[0]);
-                        this.floorRequestsList.RemoveAt(0);
+                if (currentFloor < destination)
+                {
+                    direction = "up";
+                    sortFloorList();
+                    destination = floorRequestsList[0];
+
+                    while (currentFloor < destination) 
+                    {
+                        currentFloor++;
+                        int screenDisplay = currentFloor;
                     }
-                this.status = "idle";
+                }   
+                else if (currentFloor > destination) 
+                {
+                    direction = "down";
+                    sortFloorList();
+                    destination = floorRequestsList[0];
+
+                    while (currentFloor > destination) 
+                    {
+                        currentFloor--;
+                        int screenDisplay = currentFloor;
+                    }
+                }
+                status = "stopped";
+                operateDoors();
+                completedRequestsList.Add(floorRequestsList[0]);
+                floorRequestsList.RemoveAt(0);
             }
+            status = "idle";
+        }
 
 
 
-
-        public void sortFloorList() {
-            if (this.direction == "up") {
-                this.floorRequestsList.Sort();
-        }   else {
-                this.floorRequestsList.Reverse();
+        public void sortFloorList()
+        {
+            if (direction == "up")
+            {
+                floorRequestsList.Sort();
+            }   
+            else 
+            {
+                floorRequestsList.Reverse();
             }
-            
-
         }  
         
         
 
-
-
-        public void operateDoors() {
-            this.door.status = "opened";
-            this.door.status = "closed";
-            }
+        public void operateDoors() 
+        {
+            door.status = "opened";
+            door.status = "closed";
+        }
         
 
 
-
-
-        public void addNewRequest(int requestedFloor) {
-    
-            if(this.floorRequestsList.Contains(requestedFloor) == false ) {
-                this.floorRequestsList.Add(requestedFloor);
+        public void addNewRequest(int requestedFloor) 
+        {
+            if(floorRequestsList.Contains(requestedFloor) == false) 
+            {
+                floorRequestsList.Add(requestedFloor);
             }
-
-            if (currentFloor < requestedFloor) {
-                this.direction = "up";
+            if (currentFloor < requestedFloor) 
+            {
+                direction = "up";
             }
-            if (currentFloor > requestedFloor) {
-                this.direction = "down";
-            }
-            
-            
+            if (currentFloor > requestedFloor) 
+            {
+                direction = "down";
+            }        
         }
-
-    
-
-
-
-
-
-
     }
 }

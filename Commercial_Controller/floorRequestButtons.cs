@@ -7,12 +7,12 @@ namespace Commercial_Controller
         public string status = "OFF";
         public int floor;
         public string direction;
-        
-        public FloorRequestButton(int id, int floor, string direction)
+
+        public FloorRequestButton(int id, int _floor, string _direction)
         {
-            this.ID = id;
-            this.floor = floor;
-            this.direction = direction;      
+            ID = id;
+            floor = _floor;
+            direction = _direction;      
         }
     }
 }
