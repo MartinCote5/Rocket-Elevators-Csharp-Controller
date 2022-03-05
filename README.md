@@ -1,5 +1,21 @@
 # Rocket-Elevators-Csharp-Controller
-This is the template to use for the C# commercial controller. In the Commercial_Controller folder, you will find the classes that should be used along with some methods described in the requirements. The necessary files to run some tests are also included, in the Commercial_Controller.Tests folder.
+Here is my template for the CSharp commercial controller. It is done with an oriented object logic, all files  are created with their respective methods and classes inside of it.
+
+To summarise, a Battery is generated along with the columns, the elevators and the buttons. The Battery 
+control everything. 
+
+There are two choices in the scenario, one is you are in the lobby and you choose your desired floor. 
+
+Then an Elevator is chosen and come pick you and then it moves to your desired floor. The provided scenario 1 and 2 down below fit to that logic.
+
+The other choice is if you are at any other floor than the lobby and you want to call an elevator so it can lift you back to the lobby! The provided scenario 3 and 4 down below fit to that logic.
+
+
+<!-- The following link is a video to a description of my project! :
+
+https://www.youtube.com/watch?v=UHgRiJSiDpg -->
+
+The necessary files to run some tests are also present.
 
 ### Installation
 
@@ -27,6 +43,4 @@ which should give something like:
 
 ![Screenshot from 2021-06-15 18-00-52](https://user-images.githubusercontent.com/28630658/122129140-a8f84a00-ce03-11eb-8807-33d7eab8c387.png)
 
-Make sure to only edit files in the Commercial_Controller folder. The test and scenarios files can be left in your final project. The grader will run tests similar to the ones provided.
-
-Of course, make sure to edit this Readme file to describe your own project!
+Go look in the Scenarios_test.go and scenarios.go to see the scenarios informations!
