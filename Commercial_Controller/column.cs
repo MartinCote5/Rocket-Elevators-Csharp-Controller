@@ -86,22 +86,22 @@ namespace Commercial_Controller
                 foreach (Elevator elevator in elevatorsList) 
                 {
                     //The elevator is at the lobby and already has some requests. It is about to leave but has not yet departed
-                    if (1 == elevator.currentFloor && elevator.status == "stopped") 
+                    if (elevator.currentFloor == 1 && elevator.status == "stopped") 
                     {
                         (bestElevator, bestScore, referenceGap) = checkIfElevatorIsBetter(1, elevator, bestScore, referenceGap, bestElevator, requestedFloor);  
                     } 
                     //The elevator is at the lobby and has no requests   
-                    else if (1 == elevator.currentFloor && elevator.status == "idle") 
+                    else if (elevator.currentFloor == 1 && elevator.status == "idle") 
                     {
                         (bestElevator, bestScore, referenceGap) = checkIfElevatorIsBetter(2, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
                     } 
                     //The elevator is lower than me and is coming up. It means that I'm requesting an elevator to go to a basement, and the elevator is on it's way to me
-                    else if (1 > elevator.currentFloor && elevator.direction == "up") 
+                    else if (elevator.currentFloor < 1 && elevator.direction == "up") 
                     {
                         (bestElevator, bestScore, referenceGap) = checkIfElevatorIsBetter(3, elevator, bestScore, referenceGap, bestElevator, requestedFloor);
                     } 
                     //The elevator is above me and is coming down. It means that I'm requesting an elevator to go to a floor, and the elevator is on it's way to me
-                    else if (1 < elevator.currentFloor && elevator.direction == "down") 
+                    else if (elevator.currentFloor > 1 && elevator.direction == "down") 
                     {
                         (bestElevator, bestScore, referenceGap) = checkIfElevatorIsBetter(3, elevator, bestScore, referenceGap, bestElevator, requestedFloor); 
                     } 
