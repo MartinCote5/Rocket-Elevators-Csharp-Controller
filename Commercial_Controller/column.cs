@@ -60,20 +60,6 @@ namespace Commercial_Controller
         }
 
 
-        //Simulate when a user press a button on a floor to go back to the first floor
-        public Elevator requestElevator(int requestedFloor, string direction)
-        {
-            Elevator elevator = findElevator(requestedFloor, direction);
-            elevator.addNewRequest(requestedFloor);
-            elevator.move();
-            //Always 1 because the user can only go back to the lobby
-            elevator.addNewRequest(1);
-            elevator.move();
-
-            return elevator;
-        }
-
-
  
         public Elevator findElevator(int requestedFloor, string requestedDirection) 
         {
@@ -172,6 +158,20 @@ namespace Commercial_Controller
                 }
             }
             return (bestElevator, bestScore, referenceGap);   
+        }
+
+
+             //Simulate when a user press a button on a floor to go back to the first floor
+        public Elevator requestElevator(int requestedFloor, string direction)
+        {
+            Elevator elevator = findElevator(requestedFloor, direction);
+            elevator.addNewRequest(requestedFloor);
+            elevator.move();
+            //Always 1 because the user can only go back to the lobby
+            elevator.addNewRequest(1);
+            elevator.move();
+
+            return elevator;
         }
     }
 }
