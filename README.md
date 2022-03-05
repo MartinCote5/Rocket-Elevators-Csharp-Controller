@@ -11,9 +11,9 @@ Then an Elevator is chosen and come pick you and then it moves to your desired f
 The other choice is if you are at any other floor than the lobby and you want to call an elevator so it can lift you back to the lobby! The provided scenario 3 and 4 down below fit to that logic.
 
 
-<!-- The following link is a video to a description of my project! :
+The following link is a video to a description of my project! :
 
-https://www.youtube.com/watch?v=UHgRiJSiDpg -->
+https://www.youtube.com/watch?v=p2LfHsSmeEw
 
 The necessary files to run some tests are also present.
 
