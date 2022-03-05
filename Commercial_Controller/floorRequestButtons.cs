@@ -7,6 +7,7 @@ namespace Commercial_Controller
         public string status = "OFF";
         public int floor;
         public string direction;
+        
         public FloorRequestButton(int id, int floor, string direction)
         {
             this.ID = id;

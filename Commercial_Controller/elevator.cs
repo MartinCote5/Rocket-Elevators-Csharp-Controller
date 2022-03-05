@@ -6,11 +6,10 @@ namespace Commercial_Controller
     public class Elevator
     {
         public string ID;
-        public string status = "stopped";
-        public int currentFloor = 1;
+        public string status;
+        public int currentFloor;
         public string direction;
         public Door door = new Door(1);
-        
         public List<int> floorRequestsList = new List<int>();
         public List<int> completedRequestsList  = new List<int>();
 
